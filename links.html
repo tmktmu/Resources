@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リンク集</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .category {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .category-title {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .category-title:hover {
+            background-color: #2980b9;
+        }
+        .category-title h2 {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .arrow {
+            transition: transform 0.3s;
+        }
+        .links {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            background-color: #f9f9f9;
+        }
+        .links ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .links li {
+            border-bottom: 1px solid #eee;
+        }
+        .links li:last-child {
+            border-bottom: none;
+        }
+        .links a {
+            display: block;
+            padding: 12px 0;
+            text-decoration: none;
+            color: #2980b9;
+            transition: background-color 0.2s;
+        }
+        .links a:hover {
+            background-color: #ecf0f1;
+        }
+        /* Active state */
+        .category.active .links {
+            max-height: 500px; /* Adjust as needed */
+            padding: 15px;
+        }
+        .category.active .arrow {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>リンク集</h1>
+
+        <div class="category">
+            <div class="category-title">
+                <h2>検索エンジン</h2>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                    <li><a href="https://www.bing.com" target="_blank">Bing</a></li>
+                    <li><a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                <h2>ニュース</h2>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="https://www.nhk.or.jp/news/" target="_blank">NHK NEWS WEB</a></li>
+                    <li><a href="https://www.asahi.com" target="_blank">朝日新聞デジタル</a></li>
+                    <li><a href="https://www.yomiuri.co.jp" target="_blank">読売新聞オンライン</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                <h2>開発者向け</h2>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                    <li><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></li>
+                    <li><a href="https://developer.mozilla.org/ja/" target="_blank">MDN Web Docs</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categories = document.querySelectorAll('.category');
+
+            categories.forEach(category => {
+                const title = category.querySelector('.category-title');
+                title.addEventListener('click', () => {
+                    // 他のカテゴリを閉じる場合は、この下の行のコメントを外す
+                    // closeAllCategories(category);
+                    category.classList.toggle('active');
+                });
+            });
+
+            // 他のカテゴリを閉じるための関数
+            // function closeAllCategories(exceptThis) {
+            //     categories.forEach(category => {
+            //         if (category !== exceptThis) {
+            //             category.classList.remove('active');
+            //         }
+            //     });
+            // }
+        });
+    </script>
+
+</body>
+</html>
